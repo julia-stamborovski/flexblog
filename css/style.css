@@ -1,0 +1,537 @@
+/* Letsss go p parte do flexxx mesmooo */
+/* vamos resetar o estilo */
+body, h1 , h2, p, ul , li, a
+{
+/* Tiramos a margem p td ficar "grudado" e ai da p especificar melhor */
+    margin: 0px;
+/* ul's possuem padding então vamos tirar  */
+    padding: 0px;
+}
+
+/* codigo das cores: 
+roxo A: #2D17EB;
+roxo B: #8878F5;
+roxo C: #9488DB;
+roxo D: #CCC4F2;
+roxo E: #A08DE9;
+link do gerador:https://color.adobe.com/pt/create/color-wheel */
+
+body 
+{
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    color: #2D17EB;
+    background-color: #ece8fb;;
+}
+
+/* remover os estilos das listas (li) */
+li
+{
+  list-style: none;  
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/* todas as imagens serão display block e vamos colocar um max-width 
+p/ ficar responsivo, elas não estourarão o container*/
+img
+{
+    display: block;
+    max-width: 100%;
+    /* width: 100%;  ia aumentar infinitamente*/
+}
+
+/* para saber como o box-sizing: border-box funciona
+p
+{
+    width: 300px;
+    background: tomato;
+    padding: 0 60px;
+    Se colocar o border box ele não vai mais somar aos 300
+    agora a area de conteudo interna diminui mas a box tem 300
+    entao ele respeita o tamanho definido.
+} */
+* 
+{
+    box-sizing: border-box;
+}
+
+/* Estizando o menu (super-info) */
+
+.superinfo-bg 
+{
+    background: #8878F5;
+    color: #2D17EB;
+}
+
+/* primeiro elemento que definiremos como "Display: flex" */
+
+.superinfo 
+/* como queremos distribuir os elementos? 
+1- precisa estar dentro do grid definido no prototipo (960px + - de largura no max)
+max width = 960px */
+
+
+{
+
+    max-width: 960px;
+    margin: 0 auto;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* para nao ficar grudado no topo */
+    padding-top: 10px;
+
+/* por padrao como paragrafo é um item de bloco (display: block)
+ ele fica apenas na sua linha. o A é display inline porém
+ ele está sozinho e o p por padrao estará na sua linha tambem:
+ O display: flex vai "quebrar " isso vao ficar tds os elementos
+ citados um ao lado do outro.
+
+ um elemento vai ficar na ponta;
+ o outro no meio centrado;
+ e o ultimo na outra ponta;
+ Como fazemos isso? Justify-content Querida!!!!!! 
+ E para criar esse espaçamento tão desejado??? Space-Between uhuuu
+ Os elementos sem o flex-wrap: wrap irao quebrar de um jeito desagradavel
+ então colocamos o flex-wrap para quebrar a linha*/
+
+}
+
+.superinfo p, .superinfo a
+{
+     margin: 0 10px 10px 10px;
+}
+
+
+.superinfo a 
+{
+    color: #2D17EB;
+}
+
+/* flexbox menu */
+.menu-bg 
+{
+    background-color: #CCC4F2;
+}
+.menu
+{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex; 
+    /* aqui apenas o nav é o flex item temos q ver o ul */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-logo a
+{
+    /* o calculo é: 36/16 (base padrao do browser) = 2.25em  */
+    font-size: 2.25em;
+    font-weight: bold;
+    margin: 0 10px; 
+}
+
+.menu-nav ul
+{
+     display: flex; /*da p ter flex dentro de flex kkk */
+     flex-wrap: wrap;
+}
+
+.menu-nav a
+{
+    font-size: 1.25em;
+    display: block; /* pq por padrao o _a_ é display inline */
+    padding: 10px;
+}
+
+.menu-nav a:hover 
+{
+    color:#d400d8;
+}
+
+/* flexbox introducao */
+
+.introducao 
+{
+    font-size: 3em;
+    line-height: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 10px; 
+    /* geralmente quando a tipografia é mt grande 
+    diminui o line-height dela */
+}
+
+/* sobre */
+
+.sobre
+{
+    border-top: 2px solid #9488DB;
+    border-bottom: 2px solid #9488DB;;
+     max-width:  960px; /*se mudar esse max-width p por ex: 1200px
+    os itens ja vao se ajustar automaticamente pq so estamos
+    definindo o "max"*/
+    margin: 0 auto;
+    padding: 60px 0;
+    display: flex;
+} 
+/* os flex items são os filhos ent se tiver + divs
+vai ser + um flex item */
+.sobre-info
+{
+    flex: 2 1 300px; /* quando define flex 2 é tipo 2 1 0 */
+    margin: 0 10px;
+}
+.sobre-info h1 
+{
+    font-size: 3em;
+    margin-bottom: .5em;
+}
+
+.sobre-info p 
+{
+    font-size: 1.25em;
+    line-height: 1.4;
+    margin-bottom: 1em;
+    color: #705cf5;
+}
+
+.sobre-img 
+{
+    flex: 1 1 160px;
+    margin: 0 10px;
+    flex-wrap: wrap;
+    
+}
+
+/* flexbox produtos */
+
+.produtos 
+{
+    max-width: 960px;
+    /* manter o container consistente */
+    margin: 60px auto;
+}
+
+.produtos h1
+{
+    font-size: 3em;
+    margin: 0 10px 60px 10px;
+}
+
+
+
+/* container que está "segurando" os itens */
+
+.produtos-container
+{
+    display: flex;
+    flex-wrap: wrap;
+     align-items: flex-end; /*ou center */
+}
+.produtos-item 
+{
+    flex:1 1 175px;
+    /* ou min-width: 175px; */
+    margin: 10px;
+}
+
+.produtos-item h2 
+{
+    font-size: 3em;
+    color: #a4a4a4;
+    background: #f7f7f7;
+    padding: 60px 20px;
+}
+
+.purple
+{
+    border-top: 3px solid #ae81ff;
+}
+
+.pink
+{
+    border-top: 3px solid #f9265e;
+}
+
+.blue
+{
+    border-top: 3px solid #66d9eb;
+    /* align-self: flex-end */
+}
+
+/* flexbox preços */
+
+.preco
+{
+    background: #f7f7f7;
+   
+     padding: 60px; /*padding em geral p/ cima p/ lado, decisão p observar flex n so design */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /*flnd com todos os itens
+    poderia ser no ".preco-item" mas ai criariamos uma propriedade p/ cada classe */
+}
+
+.preco-item
+{
+    flex: 1 1 260px;
+    border: 4px solid white;
+    margin: 10px;
+    padding: 20px;
+     /* min-width: 260px; /*macete: sempre defina o min-width p menos de 280 */
+    /* pq esse é + - o valor minimo de largura q vc tem de um mobile +- 260  mas podemos colocar isso no flex base  1 1 260*/ 
+
+}
+
+.preco-item h2 
+{
+    font-size: 3em;
+    color: #C0C0C0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.preco-item span
+{
+    max-width: 300px;
+    margin: 20px auto;
+    display: block; /*(como o span é inline nao estava definindo nem max-widht e nem margin) */
+    font-size: 3em;
+    text-align: center;
+    font-weight: bold;
+    padding: 10 px 0 5px 0;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+}
+
+.preco-item sup
+{
+    font-size: 1.5rem;
+    /* rem é relativo à raiz, no caso a raiz é 16px */
+}
+
+/* lista de itens */
+.preco-item ul 
+{
+    max-width: 300px;
+    margin: 20px auto;
+    font-size: 1.25em;
+    font-style: italic;
+    color:#8878F5;
+}
+
+/* criar as "bolinhas"  da ponta dos itens pseudo li*/
+
+
+.preco-item li
+{
+    /* alinhar as bolinhas */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+.preco-item li::after
+{
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #d400d8;
+    border-radius: 50%;
+}
+
+
+.preco-item a 
+{
+    max-width: 300px;
+    display: block;
+    margin: 20px auto;
+    border: 4px solid;
+    color: #d400d8;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.25em;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 2px;
+    /* quando vc n coloca uma color na borda ela fica de acordo com o color */
+}
+
+/* para definir formatações para diversos dispositivos. 
+O browser ou a aplicação lê as expressões definidas na query, caso o dispositivo 
+se encaixe nestas requisições, o CSS será aplicado. */
+@media (max-widht: 800px)
+{
+    .preco 
+    {
+        
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .preco .preco-item:nth-child(3) 
+        {   
+         order: -2; /*seleciona elementos com base em suas posições em um grupo de elementos irmãos. */
+        }
+    .preco .preco-item:nth-child(2)
+    {
+        order: -1;
+   
+    }
+}
+
+/* flexbox qualidade  */
+
+.qualidade
+{
+    max-width: 960px;
+    margin: 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.qualidade-item
+{
+flex:1 1 300px; /* (1 terco do layout) */
+margin: 20px 10px;
+}
+
+.qualidade-item h2
+{
+    font-size: 2.25em;
+    color: #a4a4a4;
+    margin-bottom: 20px;
+}
+.qualidade-item h2::before 
+{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 30px;
+    margin-right: 10px;
+
+}
+/* nth-of-type() pseu seletor */
+/* 3n+1 -> eu quero q o 1 seja selecionado e dps do 1 o terceiro item a partir do 1 */
+.qualidade-item:nth-of-type(3n+1) h2::before
+{
+    background: #ae81ff;
+}
+
+.qualidade-item:nth-of-type(3n+2) h2::before
+{
+    background: #f9265e;
+}
+.qualidade-item:nth-of-type(3n+3) h2::before
+{
+    background: #66d9eb;
+}
+.qualidade-item p 
+{
+    font-size: 1.25em;
+    line-height: 1.4;
+    color:#705cf5;
+}
+
+/* flexbox footer | newsletter */
+
+.newsletter 
+{ /* macete de pintar uma area de ponta a ponta e manter ela  ainda no container
+    faremos isso com a func calc do css */
+    background:#d7cdf9;
+    /* o calc nesse caso é tipo um auto p/ o padding */
+    padding: 60px calc((100% - 960px) /2);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newsletter-info
+{
+     /* flex: 1  se o flex base for 0 vai dar problema no Safari; */
+    flex: 1 1 240px;
+    margin: 0 10px;
+
+}
+
+.newsletter-info h1 
+{
+    font-size: 3em;
+    color: #b6a3f5;
+}
+
+.newsletter-info p 
+{
+    font-size: 1.25em;
+    font-style: italic;
+    max-width: 220px;    /*p dar o estilo de quebrar */
+    color: #b6a3f5;
+    margin-bottom: 10px;
+}
+
+.newsletter-form
+{
+    flex: 2 1 260px;
+    margin: 0 10px;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.newsletter-form input
+{
+    flex: 3 1 200px;
+    font-size: 1.25em;
+    color: #b6a3f5;
+    font-style: italic;
+    font-family:  'Nunito', Arial, Helvetica, sans-serif;
+    border: 4px solid #8878F5;
+    background: transparent;
+    padding: 15px 10px;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+.newsletter-form button 
+{
+    flex: 1 1 260px;
+    font-family:  'Nunito', Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background:#9888fb;
+    color: #CCC4F2;
+    margin: 0px;
+    cursor: pointer;
+    border: 0px;
+    padding: 15px 10px;
+}
+
+@media (max-widht: 600px) {
+    newsletter-form button {
+    font-size: 1.10em;
+
+}
+}
+.footer
+{
+    display: flex;
+    background:#9888fb;
+    height: 200px;
+    align-items: center;
+
+}
+
+.footer p 
+{
+    flex: 1;
+    text-align: center;
+    font-size:2.25em;
+    color: #2D17EB;
+}
